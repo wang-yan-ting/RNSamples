@@ -7,6 +7,7 @@ import {
   Text}
   from 'react-native';
 import NavBar from './NavBar'
+import {NavBarStyle} from './Style'
 
 export default class SecondScene extends Component {
   _back() {
@@ -17,7 +18,7 @@ export default class SecondScene extends Component {
   }
   _renderScene() {
     return (
-      <View style={{paddingTop:Navigator.NavigationBar.StylesIOS.General.TotalNavHeight}}>
+      <View style={{paddingTop:NavBarStyle.height}}>
       <Button title="hello, Second scence!"
         onPress={()=>{}}
         />

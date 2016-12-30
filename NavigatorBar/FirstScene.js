@@ -10,6 +10,7 @@ import {
   from 'react-native';
 import SecondScene from "./SecondScene";
 import NavBar from './NavBar'
+import {NavBarStyle, TestVar} from './Style'
 
 export default class FirstScene extends Component {
 
@@ -22,7 +23,7 @@ export default class FirstScene extends Component {
 
   _renderScene() {
     return (
-      <View style={{paddingTop:Navigator.NavigationBar.StylesIOS.General.TotalNavHeight}}>
+      <View style={{paddingTop:NavBarStyle.height}}>
       <Button title="hello, firsr scence!"
         onPress={this._onPress.bind(this)}
         />
@@ -31,6 +32,9 @@ export default class FirstScene extends Component {
   }
 
   render() {
+    console.log("xxx", Navigator.NavigationBar.StylesIOS.General.TotalNavHeight);
+    console.log("xxx", NavBarStyle.height);
+    console.log("xxx", TestVar);
     return (
       <Navigator
         renderScene={this._renderScene.bind(this)}
