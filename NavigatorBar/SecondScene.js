@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Text}
   from 'react-native';
+import NavBar from './NavBar'
 
 export default class SecondScene extends Component {
   _back() {
@@ -16,7 +17,7 @@ export default class SecondScene extends Component {
   }
   _renderScene() {
     return (
-      <View style={{paddingTop:Navigator.NavigationBar.Styles.General.NavBarHeight}}>
+      <View style={{paddingTop:Navigator.NavigationBar.StylesIOS.General.TotalNavHeight}}>
       <Button title="hello, Second scence!"
         onPress={()=>{}}
         />
@@ -29,36 +30,12 @@ export default class SecondScene extends Component {
       <Navigator
         renderScene={this._renderScene.bind(this)}
         navigator={this.props.navigator}
-        navigationBar={
-            <Navigator.NavigationBar style={{backgroundColor: '#246dd5'}}
-                routeMapper={NavigationBarRouteMapper} />
-        }
+        navigationBar={<NavBar
+          title="Second Scene"
+          titleLeft="Back"
+          actionLeft={() => {this.props.navigator.pop()}}
+          />}
       />
     );
   }
 }
-
-var NavigationBarRouteMapper = {
-LeftButton(route, navigator, index, navState) {
-  return (
-    <TouchableOpacity style={{justifyContent: 'center'}}
-        onPress={() => navigator.parentNavigator.pop()}>
-      <Text style={{color: 'white', margin: 10,}}>
-        返回
-      </Text>
-    </TouchableOpacity>
-  );
-},
-RightButton(route, navigator, index, navState) {
-  return null;
-},
-Title(route, navigator, index, navState) {
-  return (
-    <TouchableOpacity style={{justifyContent: 'center'}}>
-      <Text style={{color: 'white', margin: 10, fontSize: 16}}>
-        主页
-      </Text>
-    </TouchableOpacity>
-  );
-}
-};
