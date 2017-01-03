@@ -33,17 +33,7 @@ export default class TestProj extends Component {
     }
 
     _renderScene(route, nav) {
-      var page = route.component;
-
-      if(page === FirstScene) {
-        return (
-          <FirstScene navigator={nav}/>
-        );
-      } else if(page === SecondScene) {
-        return (
-          <SecondScene navigator={nav}/>
-        );
-      }
+      return <route.component navigator={nav}/>;
     }
 
 
